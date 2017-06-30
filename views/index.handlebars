@@ -1,0 +1,16 @@
+{{#each article}}
+    <div class="col-md-12">
+            <h2><a href="{{link}}" target="_blank">{{title}}</a></h2>
+            <p>{{blurb}}</p>
+            <p>
+                {{!--<a class="btn btn-default" href="{{link}}" target="_blank">View details »</a> --}}
+                <form action="/save" method="POST">
+                    <input name="_id" value="{{_id}}" type="hidden"/>
+                    {{!--<input name="title" value="{{title}}" type="hidden"/>
+                    <input name="link" value="{{link}}" type="hidden"/>
+                    <input name="blurb" value="{{blurb}}" type="hidden"/>--}}
+                    <button type="submit" class="btn btn-default">Save »</button>
+                </form>
+            </p>
+    </div>
+{{/each}}

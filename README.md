@@ -1,2 +1,1 @@
-# News-Scraper
-New Scraper Node app
+# week-18-news-scraper

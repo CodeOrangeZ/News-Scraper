@@ -1,0 +1,43 @@
+{{#each article}}
+    <div class="col-md-12">
+            <h2><a href="{{link}}" target="_blank">{{title}}</a></h2>
+            <p>{{blurb}}</p>
+                {{!--<a class="btn btn-default" href="{{link}}" target="_blank">View details »</a> --}}
+            
+            {{!--Hidden form--}}
+            <div class="hidden-comment-form">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2">    
+                    {{#each comment}}
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p>
+                                {{comment}}
+                                </p>
+                                <form action="/comment/remove-comment/{{_id}}" method="POST">
+                                    <input name="_id" value="{{_id}}" type="hidden"/>
+                                    <button type="submit" class="btn btn-default">Delete »</button>
+                                </form>
+                            </div>
+                        </div>
+                    {{/each}}
+                        <div class="col-sm-8 col-sm-offset-2">
+                            <form action="/comment/add-comment/{{_id}}" method="POST">
+                                <input class="form-control" name="comment"/>
+                                <button type="submit" class="btn btn-default">Add Comment »</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <form action="/unsave" method="POST">
+                    <input name="_id" value="{{_id}}" type="hidden"/>
+                    <button type="submit" class="btn btn-default">Unsave »</button>
+                </form>
+                <a class="btn btn-default" data-article="{{_id}}" target="_blank">View Comments »</a> 
+            </div>
+            
+    </div>
+{{/each}}
